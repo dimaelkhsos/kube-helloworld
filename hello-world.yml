@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-nj
+  labels:
+    app: helloworld-nj
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld-nj
+  template:
+    metadata:
+      labels:
+        app: helloworld-nj
+    spec:
+      containers:
+      - name: helloworld-nj
+        image: dimagomaa/helloworldnodejs
+        ports:
+        - containerPort: 3001
